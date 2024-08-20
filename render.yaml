@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: livegram-bot
+    env: docker
+    plan: free
+    buildCommand: ""
+    startCommand: ""
+    envVars:
+      - key: TOKEN
+        value: 7546500023:AAGd02lmjonyr7RS7SZ4vcislB4GDv7laVQ
+      - key: ADMIN_CHAT_ID
+        value: 7468971455
