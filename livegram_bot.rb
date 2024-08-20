@@ -13,7 +13,9 @@ get '/' do
 end
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
-  post "/#{TOKEN}" do
+  post "/webhook/:token" do
+    halt 403, "Forbidden" unless params[:token] == TOKEN
+
     request_data = JSON.parse(request.body.read)
     message = Telegram::Bot::Types::Update.new(request_data).message
 
@@ -51,5 +53,5 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     status 200
   end
 
-  bot.api.set_webhook(url: "https://livegram-ynyp.onrender.com/#{TOKEN}")
+  bot.api.set_webhook(url: "https://livegram-ynyp.onrender.com/webhook/#{TOKEN}")
 end
