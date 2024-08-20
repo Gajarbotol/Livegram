@@ -55,5 +55,5 @@ post "/#{TOKEN}" do
 end
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
-  bot.api.set_webhook(url: "https://your-vercel-app.vercel.app/#{TOKEN}")
+  bot.api.set_webhook(url: "https://livegram-ynyp.onrender.com/#{TOKEN}")
 end
